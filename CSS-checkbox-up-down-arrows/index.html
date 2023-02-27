@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Checkbox - up and down arrows</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+			#menu-toggle {
+				display: none;
+			}
+
+			#menu-toggle + i {
+			  transition: all ease-in-out .3s;
+			}
+
+			#menu-toggle:checked + i {
+			  transform: rotate(-180deg);
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Checkbox - up and down arrows</h1>
+		<label>
+			<input type="checkbox" id="menu-toggle">
+			<i class="fa fa-angle-down" aria-hidden="true"></i>
+		</label>
+		<br>
+		<a href="https://stackoverflow.com/questions/62721852/manipulate-a-checkbox-to-have-css-rotate-when-unchecked" target="_blank">source</a>
+	</body>
+</html>
