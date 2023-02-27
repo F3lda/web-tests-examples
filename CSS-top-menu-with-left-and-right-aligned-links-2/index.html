@@ -1,0 +1,123 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset='UTF-8' />
+		<title>WiSocks &mdash; Create &amp; enjoy IoT</title>
+		<link rel="shortcut icon" type="image/x-icon" href="imgs/wisockets.ico" />
+		<link rel="icon" type="image/png" href="imgs/wisockets.png" />
+		<style>
+			body {
+				background: #76b852; /* fallback for old browsers */
+				background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+				background: -moz-linear-gradient(right, #76b852, #8DC26F);
+				background: -o-linear-gradient(right, #76b852, #8DC26F);
+				background: linear-gradient(to left, #76b852, #8DC26F);
+				font-family: "Roboto", sans-serif;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			  
+				margin: 0px;
+			}
+			
+			#navbar {
+				padding: 8px 8px 0 8px;
+				width: fill-available;
+				width: -moz-available;
+				width: -webkit-fill-available;
+				display: inline-flex;
+				background: #4CAF50;
+			}
+			
+			#navbarLeft {
+				float: left;
+				width: 50%;
+				max-width: fit-content;
+				max-width: -moz-fit-content;
+				max-width: -webkit-fit-content;
+				width: fill-available;
+				width: -moz-available;
+				width: -webkit-fill-available;
+			}
+			
+			#navbarRight {
+				float: right;
+				width: 50%;
+				width: fill-available;
+				width: -moz-available;
+				width: -webkit-fill-available;
+			}
+			
+			/* For Mobile */
+			@media screen and (max-width: 540px) {
+				#navbar {
+					display: flow-root;
+				}
+				#navbarLeft {
+					display: grid; /* or inline-table; */
+				}
+			}
+			
+			/* For Tablets */
+			@media screen and (min-width: 540px) and (max-width: 780px) {
+			
+			}
+			
+			#logo {
+				float: left;
+				margin: 0;
+				position: relative;
+				bottom: 2px;
+				display: flex;
+			}
+			
+			
+			
+			.navButton {
+				padding-top: 10px;
+				padding-bottom: 10px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			
+			.navButtonLeft {
+				float: left;
+				margin-left: 20px;
+			}
+			
+			.navButtonRight {
+				float: right;
+				margin-right: 20px;
+			}
+			
+			#navbar a, .navDark {
+				color: #3b3b3b;
+			}
+			
+			.boldd {
+				font-weight: bold;
+				text-transform: uppercase;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="navbar">
+			<h1 id="logo"><a href='./' style='margin-right: 10px; text-decoration: none;'>WiSocks</a> |</h1>	
+			<span id='navbarLeft'>
+				<span class='navButton navButtonLeft'><span class='boldd'>User:</span> &nbsp;admin</span>
+				<span class='navButton navButtonLeft'><span class='boldd'>New-Device-Hash:</span> &nbsp;<a href='#HASH' onclick='prompt("New device hash:","3c0fdb2377a14285fbfde28cf520a28a"); return false;'>show</a></span>
+				<span class='navButton navButtonLeft'><span class='boldd'>Hash-Expiration:</span> &nbsp;<span id="expir" class="navDark">15m 0s </span></span>
+				<span class='navButton navButtonLeft'><span class='boldd' title='Reloads page when something change.'>Autoreload:</span> &nbsp;<input type='checkbox' id='autoReload' name='autoreload' value='autorefresh' checked='checked'></span>
+			</span>
+			<span id='navbarRight'>
+				<a class='navButton navButtonRight' href='#LOGOUT' onclick='return false;' style='color: #f0f0f0;'>LOGOUT</a>
+				<a class='navButton navButtonRight' href='#EDIT_USERS' onclick='return false;'>EDIT USERS</a>
+				<a class='navButton navButtonRight' href='#CHANGE_PASSWORD' onclick='return false;'>CHANGE PASSWORD</a>
+				<a class='navButton navButtonRight' href='#EDIT_DEVICE_PATTERNS' onclick='return false;'>EDIT DEVICE PATTERNS</a>
+				<a class='navButton navButtonRight' href='#CONDITIONAL_COMMANDS' onclick='return false;'>CONDITIONAL COMMANDS</a>
+				<a class='navButton navButtonRight' href='#SHARED_DEVICES' onclick='return false;'>SHARED DEVICES</a>
+				<a class='navButton navButtonRight' href='#DELETE_DEVICES' onclick='return false;'>DELETE DEVICES</a>
+			</span>
+		</div>
+	</body>
+</html>

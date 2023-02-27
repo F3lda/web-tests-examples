@@ -1,0 +1,14 @@
+.content_block {
+    height: 100vh;
+}
+.content_block:nth-child(odd) {
+    background-color: brown;
+}
+
+.content_block:last-child {
+    height: 80vh;
+}
+
+footer {
+    height: calc(20vh - 8px);
+}

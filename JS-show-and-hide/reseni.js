@@ -1,0 +1,1 @@
+document.getElementById('zobraz').onclick = function() {if(document.getElementById('reseni').style.display == 'block'){document.getElementById('reseni').style.display = 'none';}else{document.getElementById('reseni').style.display = 'block';}}

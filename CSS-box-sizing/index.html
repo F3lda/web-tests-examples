@@ -1,0 +1,44 @@
+<!-- Source: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing -->
+<style>
+.example-element-parent {
+    display: inline-table;
+
+    width: 220px;
+    height: 200px;
+    border: solid 10px #ffc129;
+    margin: .8em;
+}
+
+.example-element {
+    height: 80px;
+    /*margin: 2em auto;*/
+    background-color: rgba(229,232,252,.6);
+}
+</style>
+
+<h1>box-sizing</h1>
+
+<div class="example-element-parent">
+    <p>Parent container</p>
+    <div class="example-element" class="transition-all" style="box-sizing: content-box; width: 100%;">
+        <p>Child container (box-sizing: content-box;)</p>
+    </div>
+</div>
+
+<div class="example-element-parent">
+    <p>Parent container</p>
+    <div class="example-element" class="transition-all" style="box-sizing: content-box; width: 100%; border: 10px solid rgb(91, 109, 205); padding: 5px;">
+        <p>Child container (box-sizing: content-box; padding: 5px;)</p>
+    </div>
+</div>
+
+<div class="example-element-parent">
+    <p>Parent container</p>
+    <div class="example-element" class="transition-all" style="box-sizing: border-box; width: 100%; border: 10px solid rgb(91, 109, 205); padding: 5px;">
+        <p>Child container (box-sizing: border-box; padding: 5px;)</p>
+    </div>
+</div>
+
+<br>
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing" target="_blank">source</a>

@@ -1,0 +1,66 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#draggable {
+width: 100px;
+height: 100px;
+padding: 0.5em;
+float: left;
+margin: 10px 10px 10px 0;
+}
+#droppable {
+width: 150px;
+height: 150px;
+padding: 0.5em;
+float: left;
+margin: 10px;
+}
+br {
+clear: both;
+}
+</style>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+<script src="https://rawgit.com/jquery/jquery-ui/1-11-stable/external/jquery-simulate/jquery.simulate.js"></script>
+<div id="draggable" class="ui-widget-content">
+<p>Drag me to my target</p>
+</div>
+<div id="droppable" class="ui-widget-header">
+<p>Drop here</p>
+</div>
+<br>
+<button onclick="trigger_drop()">trigger drop event</button>
+<script type="text/javascript">
+$(function() {
+$("#draggable").draggable();
+$("#droppable").droppable({
+drop: function(event, ui) {
+console.log(event, ui);
+alert('dropped!');
+}
+});
+});
+function trigger_drop() {
+var draggable = $("#draggable").draggable(),
+droppable = $("#droppable").droppable(),
+droppableOffset = droppable.offset(),
+draggableOffset = draggable.offset(),
+dx = droppableOffset.left - draggableOffset.left,
+dy = droppableOffset.top - draggableOffset.top;
+draggable.simulate("drag", {
+dx: dx,
+dy: dy
+});
+}
+</script>
+<br>
+<br>
+<a href="#" target="_blank">source not found</a>
+</body>
+</html>

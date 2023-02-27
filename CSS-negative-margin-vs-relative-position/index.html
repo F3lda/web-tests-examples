@@ -1,0 +1,31 @@
+<!-- Source: https://stackoverflow.com/questions/22170960/difference-between-position-and-margin
+
+No; if you give something position: relative and pull it up 10 pixels, it will move, but continue to occupy (in terms of its box) the 10 pixels below it that it previously occupied.
+
+If you give something margin and pull it up 10 pixels, it moves up and brings everything underneath it with it, too.
+
+-->
+
+<style>
+    #relative, #margin { width: 100px; height: 200px; border: solid 1px; margin: 20px; float: left; padding: 30px; }
+    #relative div, #margin div { background: red; width: 100%; height: 80px; margin-bottom: 10px; }
+    #relative div:first-child { position: relative; top: -20px; }
+    #margin div:first-child { margin-top: -20px; }
+    </style>
+
+<p>Demo: pulling up top DIV 10 pixels, firstly via position relative and secondly via negative margin top:</p>
+
+<div id='relative'><div></div><div></div></div>
+<div id='margin'><div></div><div></div></div>
+
+<br>
+
+<p>
+    No; if you give something position: relative and pull it up 10 pixels, it will move, but continue to occupy (in terms of its box) the 10 pixels below it that it previously occupied.
+<br>
+    If you give something margin and pull it up 10 pixels, it moves up and brings everything underneath it with it, too.
+</p>
+
+<br>
+
+<a href="https://stackoverflow.com/questions/22170960/difference-between-position-and-margin" target="_blank">source</a>

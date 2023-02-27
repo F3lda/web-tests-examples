@@ -1,0 +1,4 @@
+[user1]
+mail=asd@dasd.com
+name=Pepa
+hash=g5a46dfg6ad6fg6ad

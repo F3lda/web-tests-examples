@@ -1,0 +1,6 @@
+
+
+
+<option value="./obrazky/sarge.png" id="sarge">sarge</option>
+
+
