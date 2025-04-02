@@ -1,3 +1,10 @@
+<?php
+
+
+echo (ob_get_status()['buffer_size']);
+echo var_dump(ob_get_status());
+
+?>
 <pre id="output"></pre>
 
 <script>

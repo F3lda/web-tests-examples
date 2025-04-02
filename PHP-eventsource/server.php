@@ -18,6 +18,8 @@ header('Cache-Control: no-cache');
 //ob_implicit_flush(); // call flush() automatically after every output
 //ob_end_flush();
 
+$buffer_size = (int)(ob_get_status()['buffer_size']);
+
 
 $counter = rand(1, 10);
 while (true) {
@@ -49,13 +51,24 @@ while (true) {
    ob_end_flush(); 
 } 
 flush();*/
-echo str_repeat("\n",4096); // disable output_buffering
+
+
+//WORKING
+echo str_repeat("\n", (int)(ob_get_status()['buffer_size'])-(int)(ob_get_status()['buffer_used'])); // disable output_buffering
+//echo str_repeat("\n",4096); // disable output_buffering
+//echo str_repeat("\n",4096); // disable output_buffering
+//echo str_repeat("\n",8192); // disable output_buffering
+
+//flush();
+//while (ob_get_level()) {ob_end_clean(); ob_end_flush();}
+//ob_implicit_flush();
 
   // Break the loop if the client aborted the connection (closed the page)
 
   if ( connection_aborted() ) break;
 
-  //sleep(1);
-	usleep(500000);
+  sleep(1);
+	//usleep(500000);
+	//usleep(50000);
 }
 ?>
