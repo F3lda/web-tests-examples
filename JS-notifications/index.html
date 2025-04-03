@@ -1,0 +1,118 @@
+<script>
+function notifyMe() {
+  if (!("Notification" in window)) {
+    // Check if the browser supports notifications
+    alert("This browser does not support desktop notification");
+  } else if (Notification.permission === "granted") {
+    // Check whether notification permissions have already been granted;
+    // if so, create a notification
+    const notification = new Notification("Hi there! 0", {
+				  body: "Buzz! Buzz!",
+				  icon: "./RoadieIcon250.png",
+				  vibrate: [200, 100, 200, 100, 200, 100, 200],
+				  tag: "vibration-sample",});
+        notification.onclick = function () {
+							//window.open(""); 
+							notification.close();     
+						};
+    // …
+  } else if (Notification.permission !== "denied") {
+    // We need to ask the user for permission
+    Notification.requestPermission().then((permission) => {
+      // If the user accepts, let's create a notification
+      if (permission === "granted") {
+        const notification = new Notification("Hi there! 1", {
+				  body: "Buzz! Buzz!",
+				  icon: "./RoadieIcon250.png",
+				  vibrate: [200, 100, 200, 100, 200, 100, 200],
+				  tag: "vibration-sample",});
+        notification.onclick = function () {
+							//window.open(""); 
+							notification.close();     
+						};
+      }
+    });
+  }
+
+  // At last, if the user has denied notifications, and you
+  // want to be respectful there is no need to bother them anymore.
+}
+
+
+
+
+//https://lindevs.com/install-composer-on-raspberry-pi
+//https://github.com/Minishlink/web-push-php-example/tree/master
+
+
+//https://stackoverflow.com/questions/44474960/web-push-notification-how-to-use-web-push-php-library
+//https://github.com/rijoshrc/Web-Push-Notifications-PHP-/tree/master
+
+/*
+var source = new EventSource('/events');
+
+source.on('message', message => {
+  var notification = new Notification(message.title, {
+    body: message.body
+  });
+}); */
+
+
+
+
+
+const swRegistration = navigator.serviceWorker.register("sw.js");
+
+function showNotification() {
+	if (!("Notification" in window)) {
+		// Check if the browser supports notifications
+		alert("This browser does not support desktop notification");
+	} else if (Notification.permission === "granted") {
+		// Check whether notification permissions have already been granted;
+		// if so, create a notification
+		/*swRegistration.showNotification("Vibration Sample", {
+		  body: "Buzz! Buzz!",
+		  icon: "../images/touch/chrome-touch-icon-192x192.png",
+		  vibrate: [200, 100, 200, 100, 200, 100, 200],
+		  tag: "vibration-sample",
+		});*/
+		
+		const notification = navigator.serviceWorker.ready.then((registration) => {
+				registration.showNotification("Vibration Sample 2", {
+				  body: "Buzz! Buzz!",
+				  icon: "./RoadieIcon250.png",
+				  vibrate: [200, 100, 200, 100, 200, 100, 200],
+				  tag: "vibration-sample",
+				});
+				
+        notification.onclick = function () {
+							//window.open(""); 
+							notification.close();     
+						};
+			  });
+		// …
+	} else if (Notification.permission !== "denied") {
+		  Notification.requestPermission().then((result) => {
+			if (result === "granted") {
+			  navigator.serviceWorker.ready.then((registration) => {
+				const notification = registration.showNotification("Vibration Sample 3", {
+				  body: "Buzz! Buzz!",
+				  icon: "./RoadieIcon250.png",
+				  vibrate: [200, 100, 200, 100, 200, 100, 200],
+				  tag: "vibration-sample",
+				});
+				
+        notification.onclick = function () {
+							//window.open(""); 
+							notification.close();     
+						};
+			  });
+			}
+		  });
+	}
+}
+
+</script>
+
+<a href="#" onclick="notifyMe()">push (desktop only)</a><br>
+<a href="#" onclick="showNotification()">push sw (desktop and mobile)</a>
